@@ -12,7 +12,7 @@ permission except when reproducing the unmodified NSec documentation.
 
 [NSec](https://github.com/ektrah/nsec) is licensed under the MIT license.
 
-Copyright &copy; 2022 Klaus Hartke
+Copyright &copy; 2023 Klaus Hartke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -39,7 +39,7 @@ NSec is based on and contains code derived from
 [libsodium](https://github.com/jedisct1/libsodium),
 which is available under the ISC license.
 
-Copyright &copy; 2013-2022 Frank Denis
+Copyright &copy; 2013-2023 Frank Denis
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -90,8 +90,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## License Notice for .NET Runtime
 
-NSec contains code derived from libraries of the
-[.NET Runtime](https://github.com/dotnet/runtime),
+NSec contains code derived from the
+[.NET runtime and libraries](https://github.com/dotnet/runtime),
 which are available under the MIT license.
 
 Copyright &copy; .NET Foundation and Contributors  
@@ -118,9 +118,9 @@ SOFTWARE.
 
 ## License Notice for .NET Core Lab
 
-NSec contains code derived from libraries in the
+NSec contains code derived from
 [.NET Core Lab](https://github.com/dotnet/corefxlab/),
-which are available under the MIT license.
+which is available under the MIT license.
 
 Copyright &copy; .NET Foundation and Contributors  
 All rights reserved.
