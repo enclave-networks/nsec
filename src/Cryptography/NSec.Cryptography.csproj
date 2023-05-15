@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <PackageId>Enclave.Fork.iOS.NSec.Cryptography</PackageId>
+    <PackageId>Enclave.Fork.NSec.Cryptography</PackageId>
+    <RepositoryUrl>https://github.com/enclave-networks/nsec</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup>
