@@ -9,6 +9,8 @@ Represents an authenticated encryption with associated data (AEAD) algorithm.
 
 * [[Algorithm|Algorithm Class]]
     * **AeadAlgorithm**
+        * Aegis128L
+        * Aegis256
         * Aes256Gcm
         * ChaCha20Poly1305
         * XChaCha20Poly1305
@@ -18,6 +20,20 @@ Represents an authenticated encryption with associated data (AEAD) algorithm.
 
 
 ## Static Properties
+
+
+### Aegis128L
+
+Gets the AEGIS-128L AEAD algorithm.
+
+    public static Aegis128L Aegis128L { get; }
+
+
+### Aegis256
+
+Gets the AEGIS-256 AEAD algorithm.
+
+    public static Aegis256 Aegis256 { get; }
 
 
 ### Aes256Gcm
@@ -33,10 +49,9 @@ PlatformNotSupportedException
 
 #### Remarks
 
-The implementation of AES-GCM in NSec is hardware-accelerated and requires an
-x64 processor with the AES-NI extension. The availability of this extension can
-be determined at runtime using the static `IsSupported` property of the
-`NSec.Cryptography.Aes256Gcm` class.
+The AES-GCM implementation in NSec is hardware-accelerated and may not be
+available on all architectures. Support can be determined at runtime using
+the static `IsSupported` property of the `NSec.Cryptography.Aes256Gcm` class.
 
 
 ### ChaCha20Poly1305
@@ -121,8 +136,9 @@ nonce
     catastrophic loss of security.
 
 : To prevent nonce reuse when encrypting multiple plaintexts with the same key,
-    it is recommended to increment the previous nonce; a randomly generated
-    nonce is not suitable.
+    it is recommended to increment the previous nonce. A randomly generated
+    nonce is unsafe unless the [[nonce size|AeadAlgorithm Class#NonceSize]]
+    is at least 24 bytes.
 
 associatedData
 : Optional additional data to be authenticated during decryption.
@@ -184,8 +200,9 @@ nonce
     catastrophic loss of security.
 
 : To prevent nonce reuse when encrypting multiple plaintexts with the same key,
-    it is recommended to increment the previous nonce; a randomly generated
-    nonce is not suitable.
+    it is recommended to increment the previous nonce. A randomly generated
+    nonce is unsafe unless the [[nonce size|AeadAlgorithm Class#NonceSize]]
+    is at least 24 bytes.
 
 associatedData
 : Optional additional data to be authenticated during decryption.

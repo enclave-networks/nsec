@@ -42,7 +42,7 @@ and verify the signature:
 
 ## Installation
 
-    $ dotnet add package NSec.Cryptography --version 22.4.0
+    $ dotnet add package NSec.Cryptography --version 23.9.0-preview.3
 
 NSec works with .NET 6 and later on Windows, Linux and macOS.
 
@@ -53,21 +53,24 @@ See [[Installation]] for more details.
 
 | Class                                           | Algorithms                |
 |:----------------------------------------------- |:------------------------- |
-| [[AeadAlgorithm Class]]                         | AES256-GCM                |
+| [[AeadAlgorithm Class]]                         | AEGIS-128L                |
+|                                                 | AEGIS-256                 |
+|                                                 | AES256-GCM                |
 |                                                 | ChaCha20-Poly1305         |
 |                                                 | XChaCha20-Poly1305        |
-| [[HashAlgorithm Class]]                         | BLAKE2b *-- unkeyed*      |
+| [[HashAlgorithm Class]]                         | BLAKE2b *(unkeyed)*       |
 |                                                 | SHA-256                   |
 |                                                 | SHA-512                   |
 | [[KeyAgreementAlgorithm Class]]                 | X25519                    |
 | [[KeyDerivationAlgorithm2 Class]]               | HKDF-SHA-256              |
 |                                                 | HKDF-SHA-512              |
-| [[MacAlgorithm Class]]                          | BLAKE2b *-- keyed*        |
+| [[MacAlgorithm Class]]                          | BLAKE2b *(keyed)*         |
 |                                                 | HMAC-SHA-256              |
 |                                                 | HMAC-SHA-512              |
 | [[PasswordBasedKeyDerivationAlgorithm Class]]   | Argon2id                  |
 |                                                 | scrypt                    |
 | [[SignatureAlgorithm Class]]                    | Ed25519                   |
+| [[SignatureAlgorithm2 Class]]                   | Ed25519ph                 |
 
 See [[API Reference|NSec.Cryptography Namespace]] for detailed information.
 

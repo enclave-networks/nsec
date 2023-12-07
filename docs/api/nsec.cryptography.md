@@ -2,6 +2,8 @@
 
 * [[Algorithm Class]]
     * [[AeadAlgorithm Class]]
+        * Aegis128L Class
+        * Aegis256 Class
         * Aes256Gcm Class
         * ChaCha20Poly1305 Class
         * XChaCha20Poly1305 Class
@@ -26,8 +28,12 @@
             * [[ScryptParameters Struct]]
     * [[SignatureAlgorithm Class]]
         * Ed25519 Class
+        * [[SignatureAlgorithm2 Class]]
+            * Ed25519ph Class
 * [[IncrementalHash Struct]]
 * [[IncrementalMac Struct]]
+* [[IncrementalSignature Struct]]
+* [[IncrementalSignatureVerification Struct]]
 * [[Key Class]]
     * [[KeyCreationParameters Struct]]
     * [[KeyExportPolicies Enum]]

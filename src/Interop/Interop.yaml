@@ -6,6 +6,36 @@ Interop.Core.cs:
   - sodium_init
   - sodium_set_misuse_handler
 
+Interop.Aead.Aegis128L.cs:
+  include: include/sodium/crypto_aead_aegis128l.h
+  constants:
+  - crypto_aead_aegis128l_ABYTES
+  - crypto_aead_aegis128l_KEYBYTES
+  - crypto_aead_aegis128l_NPUBBYTES
+  - crypto_aead_aegis128l_NSECBYTES
+  functions:
+  - crypto_aead_aegis128l_abytes
+  - crypto_aead_aegis128l_decrypt (out ulong mlen_p, SecureMemoryHandle k)
+  - crypto_aead_aegis128l_encrypt (out ulong clen_p, SecureMemoryHandle k)
+  - crypto_aead_aegis128l_keybytes
+  - crypto_aead_aegis128l_npubbytes
+  - crypto_aead_aegis128l_nsecbytes
+
+Interop.Aead.Aegis256.cs:
+  include: include/sodium/crypto_aead_aegis256.h
+  constants:
+  - crypto_aead_aegis256_ABYTES
+  - crypto_aead_aegis256_KEYBYTES
+  - crypto_aead_aegis256_NPUBBYTES
+  - crypto_aead_aegis256_NSECBYTES
+  functions:
+  - crypto_aead_aegis256_abytes
+  - crypto_aead_aegis256_decrypt (out ulong mlen_p, SecureMemoryHandle k)
+  - crypto_aead_aegis256_encrypt (out ulong clen_p, SecureMemoryHandle k)
+  - crypto_aead_aegis256_keybytes
+  - crypto_aead_aegis256_npubbytes
+  - crypto_aead_aegis256_nsecbytes
+
 Interop.Aead.Aes256Gcm.cs:
   include: include/sodium/crypto_aead_aes256gcm.h
   constants:
@@ -288,11 +318,18 @@ Interop.Sign.Ed25519.cs:
   - crypto_sign_ed25519_pk_to_curve25519 (PublicKeyBytes* curve25519_pk, PublicKeyBytes* ed25519_pk)
   - crypto_sign_ed25519_publickeybytes
   - crypto_sign_ed25519_secretkeybytes
-  - crypto_sign_ed25519_sk_to_curve25519 (SecureMemoryHandle ed25519_sk)
-  - crypto_sign_ed25519_sk_to_seed (SecureMemoryHandle sk)
   - crypto_sign_ed25519_seed_keypair (PublicKeyBytes* pk, SecureMemoryHandle sk)
   - crypto_sign_ed25519_seedbytes
+  - crypto_sign_ed25519_sk_to_curve25519 (SecureMemoryHandle ed25519_sk)
+  - crypto_sign_ed25519_sk_to_seed (SecureMemoryHandle sk)
   - crypto_sign_ed25519_verify_detached (PublicKeyBytes* pk)
+  - crypto_sign_ed25519ph_final_create (out ulong siglen_p, SecureMemoryHandle sk)
+  - crypto_sign_ed25519ph_final_verify (PublicKeyBytes* pk)
+  - crypto_sign_ed25519ph_init
+  - crypto_sign_ed25519ph_statebytes
+  - crypto_sign_ed25519ph_update
+  structs:
+  - crypto_sign_ed25519ph_state
 
 #Interop.Sign.Edwards25519Sha512Batch.cs:
 #  include: include/sodium/crypto_sign_edwards25519sha512batch.h

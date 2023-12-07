@@ -12,6 +12,8 @@ namespace NSec.Tests
 
         public static readonly TheoryData<AeadAlgorithm> AeadAlgorithms = new()
         {
+            AeadAlgorithm.Aegis128L,
+            AeadAlgorithm.Aegis256,
             AeadAlgorithm.Aes256Gcm,
             AeadAlgorithm.ChaCha20Poly1305,
             AeadAlgorithm.XChaCha20Poly1305,
@@ -80,6 +82,12 @@ namespace NSec.Tests
         public static readonly TheoryData<SignatureAlgorithm> SignatureAlgorithms = new()
         {
             SignatureAlgorithm.Ed25519,
+            SignatureAlgorithm.Ed25519ph,
+        };
+
+        public static readonly TheoryData<SignatureAlgorithm2> IncrementalSignatureAlgorithms = new()
+        {
+            SignatureAlgorithm.Ed25519ph,
         };
 
         #endregion
@@ -90,10 +98,13 @@ namespace NSec.Tests
         {
             KeyAgreementAlgorithm.X25519,
             SignatureAlgorithm.Ed25519,
+            SignatureAlgorithm.Ed25519ph,
         };
 
         public static readonly TheoryData<Algorithm> SymmetricAlgorithms = new()
         {
+            AeadAlgorithm.Aegis128L,
+            AeadAlgorithm.Aegis256,
             AeadAlgorithm.Aes256Gcm,
             AeadAlgorithm.ChaCha20Poly1305,
             AeadAlgorithm.XChaCha20Poly1305,
@@ -140,6 +151,8 @@ namespace NSec.Tests
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.NSecPublicKey },
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.PkixPublicKey },
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.PkixPublicKeyText },
+            { SignatureAlgorithm.Ed25519ph, KeyBlobFormat.RawPublicKey },
+            { SignatureAlgorithm.Ed25519ph, KeyBlobFormat.NSecPublicKey },
         };
 
         public static readonly TheoryData<Algorithm, KeyBlobFormat> PrivateKeyBlobFormats = new()
@@ -152,10 +165,16 @@ namespace NSec.Tests
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.NSecPrivateKey },
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.PkixPrivateKey },
             { SignatureAlgorithm.Ed25519, KeyBlobFormat.PkixPrivateKeyText },
+            { SignatureAlgorithm.Ed25519ph, KeyBlobFormat.RawPrivateKey },
+            { SignatureAlgorithm.Ed25519ph, KeyBlobFormat.NSecPrivateKey },
         };
 
         public static readonly TheoryData<Algorithm, KeyBlobFormat> SymmetricKeyBlobFormats = new()
         {
+            { AeadAlgorithm.Aegis128L, KeyBlobFormat.RawSymmetricKey },
+            { AeadAlgorithm.Aegis128L, KeyBlobFormat.NSecSymmetricKey },
+            { AeadAlgorithm.Aegis256, KeyBlobFormat.RawSymmetricKey },
+            { AeadAlgorithm.Aegis256, KeyBlobFormat.NSecSymmetricKey },
             { AeadAlgorithm.Aes256Gcm, KeyBlobFormat.RawSymmetricKey },
             { AeadAlgorithm.Aes256Gcm, KeyBlobFormat.NSecSymmetricKey },
             { MacAlgorithm.Blake2b_128, KeyBlobFormat.RawSymmetricKey },

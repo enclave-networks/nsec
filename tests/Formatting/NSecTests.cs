@@ -7,6 +7,8 @@ namespace NSec.Tests.Formatting
     public static class NSecTests
     {
         [Theory]
+        [InlineData(typeof(Aegis128L), new byte[] { 0xDE, 0x61, 0x4A, 0xDE })]
+        [InlineData(typeof(Aegis256), new byte[] { 0xDE, 0x61, 0x4B, 0xDE })]
         [InlineData(typeof(Aes256Gcm), new byte[] { 0xDE, 0x61, 0x44, 0xDE })]
         [InlineData(typeof(ChaCha20Poly1305), new byte[] { 0xDE, 0x61, 0x43, 0xDE })]
         public static void Aead(Type algorithmType, byte[] blobHeader)
@@ -41,6 +43,22 @@ namespace NSec.Tests.Formatting
             var a = SignatureAlgorithm.Ed25519;
 
             Test(a, a.PrivateKeySize, KeyBlobFormat.RawPrivateKey, a.PublicKeySize, a.SignatureSize, KeyBlobFormat.NSecPublicKey, new byte[] { 0xDE, 0x65, 0x42, 0xDE });
+        }
+
+        [Fact]
+        public static void Ed25519phPrivate()
+        {
+            var a = SignatureAlgorithm.Ed25519ph;
+
+            Test(a, a.PrivateKeySize, KeyBlobFormat.RawPrivateKey, a.PrivateKeySize, a.SignatureSize, KeyBlobFormat.NSecPrivateKey, new byte[] { 0xDE, 0x64, 0x48, 0xDE });
+        }
+
+        [Fact]
+        public static void Ed25519phPublic()
+        {
+            var a = SignatureAlgorithm.Ed25519ph;
+
+            Test(a, a.PrivateKeySize, KeyBlobFormat.RawPrivateKey, a.PublicKeySize, a.SignatureSize, KeyBlobFormat.NSecPublicKey, new byte[] { 0xDE, 0x65, 0x48, 0xDE });
         }
 
         [Fact]
