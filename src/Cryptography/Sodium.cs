@@ -33,10 +33,10 @@ namespace NSec.Cryptography
                         : Error.InvalidOperation_InitializationFailed();
                 }
 
-                if (sodium_set_misuse_handler(&InternalError) != 0)
+                /* if (sodium_set_misuse_handler(&InternalError) != 0)
                 {
                     throw Error.InvalidOperation_InitializationFailed();
-                }
+                } */
 
                 // sodium_init() returns 0 on success, -1 on failure, and 1 if the
                 // library had already been initialized.
